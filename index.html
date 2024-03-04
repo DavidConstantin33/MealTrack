@@ -16,26 +16,27 @@
 </div>
 
 <div class="loginParent">
-<div class="login hide">
-    <form>
+<div class="login">
+    <form id="loginForm" autocomplete="on">
         <label for="username">Username</label>
-        <input id="username" type="text">
+        <input id="username" type="text" autocomplete="username">
 
         <label for="password">Password</label>
-        <input id="password" type="password">
+        <input id="password" type="password" autocomplete="current-password">
 
-        <button id="loginBtn">Log In</button>
+        <button id="loginBtn" type="button">Log In</button>
     </form>
 </div>
 </div>
 
 <div class="modal hide">
     <h1>Congratulations!</h1>
+    <p id="total">You ate ... kcals above your plan (x)</p>
     <p>You have reached your daily goal!</p>
     <button id="reset">Reset</button>
 </div>
 
-<div class="app">
+<div class="hide app">
 
 <div class="container">
     <div class="dashboard">
@@ -61,10 +62,10 @@
 
     <div class="circle">
     <svg class="progress" width="500" height="500">
-        <circle class="progress-circle" cx="150" cy="150" stroke="blue" r="140" fill="transparent" stroke-width="10" />
+        <circle class="progress-circle" cx="150" cy="150" stroke="blue" r="140" fill="#3d3935" stroke-width="10" />
     </svg>
-        <p id="kcalTotal"> x kcal</p>
-        <p id="kcalLeft">You ate ... kcal</p>
+        <p id="kcalTotal"> Your Calories</p>
+        <p id="kcalLeft">Calories you ate</p>
     </div>
 
 </div>

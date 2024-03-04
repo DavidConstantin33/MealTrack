@@ -1,7 +1,7 @@
 const acc1 = {
     name: 'Constantin David',
-    username: 'davidC',
-    password: 'parola123',
+    username: '1',
+    password: '11',
 };
 
 const acc2 = {
@@ -12,6 +12,30 @@ const acc2 = {
 
 const accs = { acc1, acc2 };
 
+//////////////Circle
+let kcal = 0;
+let circumference;
+const circle = document.querySelector('.progress-circle');
+
+if (circle) {
+    const radius = circle.getAttribute('r');
+
+    if (radius) {
+        circumference = 2 * Math.PI * parseFloat(radius);
+        const maintainValue = (kcal / 2000) * 100;
+        const dasharrayValue = `${circumference} ${circumference}`;
+        const dashoffsetValue = circumference - (maintainValue / 100) * circumference;
+
+        circle.setAttribute('stroke-dasharray', dasharrayValue);
+        circle.setAttribute('stroke-dashoffset', dashoffsetValue);
+    } else {
+        console.log('SVG circle element does not have a valid radius.');
+    }
+} else {
+    console.log('SVG element with class .progress-circle not found.');
+}
+
+///////////////Variables
 const app = document.querySelector('.app');
 const modal = document.querySelector('.modal');
 const loginWindow = document.querySelector('.login');
@@ -30,27 +54,36 @@ const maintainBtn = document.getElementById('maintainBtn');
 const bulkBtn = document.getElementById('bulkBtn');
 resetBtn = document.getElementById('reset');
 let ateKcal = 0;
-
-///Circle///
-//////////////////////////////////////////////
-let kcal = 2000;
 let currentKcal = 0;
 let totalKcal = 0;
-const circle = document.querySelector('.progress-circle');
-const circumference = circle.getTotalLength();
-const maintainValue = (kcal / 2000) * 100;
-const dasharrayValue = `${circumference} ${circumference}`;
-const dashoffsetValue = circumference - (maintainValue / 100) * circumference;
-
-circle.setAttribute('stroke-dasharray', dasharrayValue);
-circle.setAttribute('stroke-dashoffset', dashoffsetValue);
-
+const result = document.getElementById('total');
 ////////////////////////////////////////////////
 ////////////////////////////////////////////////
+
 ///Functions
+
+const resetMeals = function () {
+    while (mealsContainer.firstChild) {
+        mealsContainer.removeChild(mealsContainer.firstChild);
+    }
+    kcal = 0;
+    ateKcal = 0;
+    totalKcal = 0;
+    displayTotalKcal.textContent = `Total Calories: ${totalKcal} kcal`;
+    displayKcalLeft.textContent = `You ate ${totalKcal} kcal`;
+};
+const diff = function (ateKcal, totalKcal) {
+    return totalKcal - ateKcal;
+}
+
+const login = function () {
+    loginWindow.classList.add('hide');
+    app.classList.remove('hide');
+}
+
 const updateCircle = function () {
-    const eatenPercentage = (ateKcal / totalKcal) * 100;
-    const dashoffsetValue = circumference - (eatenPercentage / 100) * circumference;
+    const percent = (ateKcal / totalKcal) * 100;
+    const dashoffsetValue = circumference - (percent / 100) * circumference;
     circle.setAttribute('stroke-dashoffset', dashoffsetValue);
 };
 
@@ -69,8 +102,7 @@ const openModal = function () {
 const reset = function() {
     modal.classList.add('hide');
     app.classList.remove('hide');
-    totalKcal = 0;
-    ateKcal = 0;
+    resetMeals();
 }
 
 const finish = function () {
@@ -78,6 +110,8 @@ const finish = function () {
         displayTotalKcal.textContent = `Total Calories: ${totalKcal} kcal`;
         displayKcalLeft.textContent = `You ate ${totalKcal} kcal`;
         openModal();
+        let difference = diff(ateKcal, totalKcal);
+        result.textContent = `You ate ${Math.abs(difference)} calories ${difference >= 0 ? 'above' : 'above'} your plan (${totalKcal})`;
     }
 }
 
@@ -115,7 +149,7 @@ loginBtn.addEventListener('click', function (e) {
     for (const acc of Object.values(accs)) {
         if (acc.username === usernameInput.value && acc.password === passwordInput.value) {
             ///Login
-            loginWindow.classList.add('hide');
+            login();
             ///Compute User
             const firstName = acc.name.trim().split(' ')[1];
             welcomeBack.textContent = `Welcome back, ${firstName}`;
@@ -135,6 +169,7 @@ maintainBtn.addEventListener('click', function () {
     totalKcal = 2000; // Adjust this value as needed
     displayTotalKcal.textContent = `${totalKcal} kcal`;
     updateCalorieDisplay(currentKcal);
+
 });
 
 bulkBtn.addEventListener('click', function () {

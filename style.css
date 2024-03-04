@@ -124,6 +124,7 @@ button {
 }
 
 .circle {
+    margin-top: 2em;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
