@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meal Track App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="head">
+    <img src="appLogo.png" alt="logo">
+</div>
+
+<div class="loginParent">
+<div class="login hide">
+    <form>
+        <label for="username">Username</label>
+        <input id="username" type="text">
+
+        <label for="password">Password</label>
+        <input id="password" type="password">
+
+        <button id="loginBtn">Log In</button>
+    </form>
+</div>
+</div>
+
+<div class="modal hide">
+    <h1>Congratulations!</h1>
+    <p>You have reached your daily goal!</p>
+    <button id="reset">Reset</button>
+</div>
+
+<div class="app">
+
+<div class="container">
+    <div class="dashboard">
+        <h1 id="welcome" style="font-size: 1em">Welcome back,</h1>
+        <p>Choose your goal:</p>
+            <div class="goalBtns">
+                <button id="burnBtn">Lose fat</button>
+                <button id="maintainBtn">Maintain</button>
+                <button id="bulkBtn">Bulk</button>
+            </div>
+
+        <div class="addMeal">
+            <h1 style="font-size: 1em">Add your meal</h1>
+            <p>Meal name:</p>
+            <input id="mealName" type="text">
+            <p>Meal Calories:</p>
+            <input id="mealKcal" type="number">
+            <button id="addMeal">Add meal</button>
+        </div>
+
+    </div>
+
+
+    <div class="circle">
+    <svg class="progress" width="500" height="500">
+        <circle class="progress-circle" cx="150" cy="150" stroke="blue" r="140" fill="transparent" stroke-width="10" />
+    </svg>
+        <p id="kcalTotal"> x kcal</p>
+        <p id="kcalLeft">You ate ... kcal</p>
+    </div>
+
+</div>
+
+<div id="meals">
+
+</div>
+</div>
+
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+body {
+    font-family: Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    text-align: center;
+    background-image: url("bg.jpg");
+    background-size: cover;
+}
+
+.roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.modal {
+    background-color: white;
+    padding: 5em;
+    border-radius: 15px;
+    margin: 3em 30em 0 30em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1em;
+    box-shadow: 0 0 10px rgba(5, 5, 5, 2);
+}
+
+.modal button {
+    background-color: white;
+    padding: 0.5em;
+    margin-top: 2em;
+}
+
+.hide {
+    display: none;
+}
+
+.head {
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #3d3935;
+    box-shadow: 0 0 10px rgba(5, 5, 5, 2);
+}
+
+.head img {
+    width: 12em;
+    height: 7em;
+}
+
+.loginParent {
+    margin-top: 4em;
+    display: flex;
+    justify-content: center;
+}
+
+.login {
+    width: 20rem;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(5, 5, 5, 2);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #000000;
+}
+
+button {
+    font-size: 1em;
+    padding: 2px;
+    margin: 5px;
+    font-family: Roboto, sans-serif;
+}
+
+.container {
+    margin: 2em;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    justify-content: center;
+    gap: 40em;
+    box-shadow: 0 0 12px rgba(5, 5, 5, 2);
+    width: auto;
+}
+
+.dashboard {
+    display: flex;
+    flex-direction: column;
+}
+
+.goalBtns {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.goalBtns button {
+    box-sizing: border-box;
+    width: 6em;
+    background-color: white;
+    padding: 0.7em;
+    border: 2px solid;
+}
+
+.circle {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.progress {
+    width: 300px;
+    height: 300px;
+}
+
+.addMeal {
+    margin: 4em 0 2em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.addMeal button {
+    border: 2px solid;
+    padding: 0.7em;
+    background-color: white;
+    margin: 0;
+}
+
+.addMeal input {
+    width: 100px;
+}
+
+#meals {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1em;
+    background-color: white;
+    border: 1px solid;
+}
+
